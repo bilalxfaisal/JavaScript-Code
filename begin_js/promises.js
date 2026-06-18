@@ -78,6 +78,8 @@ async function getData(){
         console.log(userData)
     } catch (error) {
         console.log(error)
+    } finally {
+        console.log("Done")
     }
 }
 
@@ -115,3 +117,16 @@ async function findUser(username) {
 (async () => {
   console.log(await findUser('john'));
 })();
+
+
+// old AJAX - use XMLHttpRequest to open, get, load, send - reloads the whole page
+// new AJAX - use fetch API - updates page dynamically (just the changes - doesnt reload the whole page)
+
+// what goes in each queue ? 
+
+// - Task/Callback Queue
+// setTimout, setInterval, DOM Events, AJAX callbacks (old ones)
+// runs after microtask
+
+// - Microtask Queue
+// Promises, then, catch, finally, async/await
