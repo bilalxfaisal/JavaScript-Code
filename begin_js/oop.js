@@ -73,3 +73,68 @@ console.log(emp1.__proto__)
 //console.log(Employee.applyTax(0.1))
 
 // when you make a getter always make a setter too and vica versa
+
+
+// function greet(city, job) {
+//   console.log(this.name, city, job);
+// }
+
+// const user = { name: "Bilal" };
+
+// greet.call(user, "Rawalpindi", "Developer");
+
+function introduce(city, profession) {
+    console.log(
+        `Hi, I'm ${this.name} from ${city} and I'm a ${profession}.`
+    );
+}
+
+const user = { name: "Bilal" };
+
+const introBilal = introduce.bind(user, "Rawalpindi", "Developer");
+
+introBilal();
+
+Object.defineProperty(Employee, "name", {
+    value: "Employee Class",
+    writable: false,
+    configurable: false,
+})
+const desc = Object.getOwnPropertyDescriptor(Employee, "name")
+console.log(desc)
+
+// call: execute function with specific this value - pass arguments saperately
+// apply: execute function with specific this value - pass arguments as an array
+// bind: doesnt execute immediately - returns a function with specific this value
+
+// - works fine
+const student = {
+    name: "Bilal",
+    greet: function() {
+        console.log(`Hello, I'm ${this.name}!`)
+    }
+}
+
+student.greet()
+
+// - works using call
+
+function introduceMe(city){
+    console.log(`Hello, I'm ${this.name} from ${city}!`)
+}
+// doesnt know which this to use (uses its own this which is window) - 
+// so we use call to specify the this
+
+const student3 = {
+    name: "Arham"
+}
+
+introduceMe.call(student3, "Rawalpindi")
+
+
+// -  works using bind - but we have to call the function returned by bind
+
+const introArham = introduceMe.bind(student3)
+introArham("Rawalpindi")
+
+
