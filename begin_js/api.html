@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // first open the request
+    // then when it is loaded generate the data or do whatever you want
+    // then send it (must)
+    // use json.parse to convert api data to string
+
+    requestHTML = "https://api.github.com/users/bilalxfaisal"
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestHTML)
+    xhr.onload = function(){
+        const data = JSON.parse(xhr.responseText)
+        console.log(data.login)
+    }
+    xhr.send()
+</script>
+</html>

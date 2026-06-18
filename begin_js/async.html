@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <h1>Changing background colors</h1>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+</body>
+<script>
+    const randomColor = function(){
+        const hex = '0123456789ABCDEF'
+        let color = "#"
+        for(i = 0; i < 6; i++)
+        {
+            hexIndex = Math.floor(Math.random() * 16)
+            color += hex[hexIndex]
+        }
+        return color
+    }
+    const changeColor = function(){
+        document.body.style.backgroundColor = randomColor()
+    }
+    let intervalId
+    document.querySelector(".start").addEventListener("click", function(){
+        intervalId = setInterval(changeColor, 1000)
+    })
+    document.querySelector(".stop").addEventListener("click", function(){
+        clearInterval(intervalId)
+    })
+</script>
+</html>
