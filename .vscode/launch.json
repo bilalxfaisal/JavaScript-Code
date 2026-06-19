@@ -1,14 +1,34 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
-            "type": "editor-browser",
+            "type": "pwa-chrome",
             "request": "launch",
-            "name": "Open DOM.html",
-            "url": "file:///d%3A/FAST%202024/JavaScript-Code/begin_js/DOM.html"
+            "name": "Open DOM.html in Chrome",
+            "file": "d:/FAST 2024/JavaScript-Code/begin_js/DOM.html"
+        },
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run JavaScript (Node)",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run TypeScript (ts-node)",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${file}"
+            ],
+            "console": "integratedTerminal"
         }
     ]
 }
