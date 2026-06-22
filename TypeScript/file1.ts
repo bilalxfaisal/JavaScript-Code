@@ -296,3 +296,7 @@ console.log(numberBox.getValue()); // 10
 
 const stringBox = new Box<string>("Hello");
 console.log(stringBox.getValue()); // Hello
+
+// Promise is also a generic class i.e. Promise<T>
+
+// fetch returns a Response object 
